@@ -10,7 +10,7 @@ function init() {
     // Use D3 to select the dropdown menu
     var dropdown = d3.select("#selDataset");
     // Assign the value of the dropdown menu option to a variable
-    d3.json("static/js/data/samples.json").then((data) => {
+    d3.json("./static/js/data/samples.json").then((data) => {
 
         var samples = data.names;
         samples.forEach(sample => dropdown.append('option').text(sample).property('value', sample))
@@ -23,7 +23,7 @@ function init() {
 
 function buildMetaData(sample) {
     //Use d3 to read in the json file
-    d3.json("static/js/data/samples.json").then((data) => {
+    d3.json("./static/js/data/samples.json").then((data) => {
         
         var metadata = data.metadata.filter(sampleDict => sampleDict.id.toString() === sample)[0];
 
@@ -33,13 +33,13 @@ function buildMetaData(sample) {
         demographicInfo.html("");
 
         Object.entries(metadata).forEach((key) => {
-            demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n")
+            demographicInfo.append("h5").text(key[0] + ": " + key[1] + "\n")
         });
     });
 };
 
 function buildCharts (sampleName) {
-    d3.json("static/js/data/samples.json").then((data) => {
+    d3.json("./static/js/data/samples.json").then((data) => {
 
         var samples = data.samples.filter(sampleDict => sampleDict.id === sampleName)[0];
 
@@ -69,6 +69,9 @@ function buildCharts (sampleName) {
     // Define the plot layout
     var barLayout = {
       title: "Top 10 OTU",
+      autosize: false,
+      width:1000,
+      height: 500
     };
   
     // Plot the chart to a div tag with id "bar"
