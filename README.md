@@ -13,5 +13,5 @@ In this assignment, I built an interactive dashboard to explore the [Belly Butto
 6. Created script that updates all of the plots any time that a new sample is selected.
 7. Deployed the app to GitHub Pages
 
-<img src="https://cloud.githubusercontent.com/assets/yourgif.gif" width="400" height="790">
+<img src="https://github.com/kelseyoros/plotly-challenge/blob/master/Images/FinalWebPage.JPG" width="800">
 
